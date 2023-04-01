@@ -8,3 +8,24 @@
 ## Motivation
 
 I had a weekend and I decided to learn different pathfinding algorithms and some SDL basics.
+
+## Features
+
+### Creating Obstacles
+#### Creating and removing obstacles
+![screen-gif](./screenshots/obstacles.gif)
+
+### DFS
+![screen-gif](./screenshots/dfs.gif)
+
+### BFS
+![screen-gif](./screenshots/bfs.gif)
+
+### Djikstra
+![screen-gif](./screenshots/djikstra.gif)
+
+### Greedy
+![screen-gif](./screenshots/greedy.gif)
+
+### A*
+![screen-gif](./screenshots/astar.gif)
