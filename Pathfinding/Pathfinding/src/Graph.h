@@ -4,6 +4,7 @@
 #include "Algorithm.h"
 
 #include <utility>
+#include <memory>
 
 class Graph
 {
@@ -35,6 +36,6 @@ private:
 
 	SDL_Window* window;
 	bool isRunning;
-	Algorithm* algorithm;
+	std::unique_ptr<Algorithm> algorithm;
 };
 

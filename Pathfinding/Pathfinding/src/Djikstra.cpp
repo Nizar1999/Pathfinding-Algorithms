@@ -14,15 +14,8 @@ int Djikstra::distance(std::pair<int,int> node)
 
 void Djikstra::execute()
 {
-	int X[] = { -1,1,0,0 };
-	int Y[] = { 0,0,-1,1 };
-
 	std::priority_queue<std::pair<int, int>, std::vector<std::pair<int,int>>, Djikstra::cmp> nodes;
-	std::map<std::pair<int, int>, std::pair<int, int>> path;
 	std::map<std::pair<int, int>, int> pathCost;
-
-	int dx = 0;
-	int dy = 0;
 
 	nodes.push({ Graph::srcNode.first, Graph::srcNode.second });
 	pathCost[{ Graph::srcNode.first, Graph::srcNode.second }] = 0;
@@ -72,20 +65,5 @@ void Djikstra::execute()
 		}
 	}
 
-	std::stack<std::pair<int, int>> rpath;
-	std::pair<int, int> node = {Graph::destNode.first, Graph::destNode.second};
-	while(path.count(node))
-	{
-		node = path[node];
-		rpath.push(node);
-	}
-
-	while (!rpath.empty())
-	{
-		node = rpath.top();
-		rpath.pop();
-		Graph::grid[node.first][node.second] = -4;
-		SDL_Delay(50);
-		Graph::drawGraph();
-	}
+	printPath();
 }

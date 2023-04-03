@@ -23,7 +23,7 @@ SDL_Rect Graph::astarBtn;
 
 int Graph::init()
 {
-	algorithm = new Astar();
+	isRunning = true;
 	return TTF_Init() | initWindow();
 }
 
@@ -83,31 +83,31 @@ void Graph::handleEvents()
 		}
 		if (SDL_HasIntersection(&dfsBtn, &mouseRect))
 		{
-			algorithm = new DFS();
+			algorithm = std::make_unique<DFS>();
 			resetGraph();
 			algorithm->execute();
 		}
 		if (SDL_HasIntersection(&bfsBtn, &mouseRect))
 		{
-			algorithm = new BFS();
+			algorithm = std::make_unique<BFS>();
 			resetGraph();
 			algorithm->execute();
 		}
 		if (SDL_HasIntersection(&djikstraBtn, &mouseRect))
 		{
-			algorithm = new Djikstra();
+			algorithm = std::make_unique<Djikstra>();
 			resetGraph();
 			algorithm->execute();
 		}
 		if (SDL_HasIntersection(&greedyBtn, &mouseRect))
 		{
-			algorithm = new Greedy();
+			algorithm = std::make_unique<Greedy>();
 			resetGraph();
 			algorithm->execute();
 		}
 		if (SDL_HasIntersection(&astarBtn, &mouseRect))
 		{
-			algorithm = new Astar();
+			algorithm = std::make_unique<Astar>();
 			resetGraph();
 			algorithm->execute();
 		}
